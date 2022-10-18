@@ -17,7 +17,6 @@ class MainTabBarController: UITabBarController {
             createNavController(viewController: UIViewController(), title: "Apps", imageName: "apps"),
             createNavController(viewController: SearchController(), title: "Search", imageName: "search")
         ]
-        
     }
     
     fileprivate func createNavController(viewController: UIViewController, title: String, imageName: String) -> UINavigationController {

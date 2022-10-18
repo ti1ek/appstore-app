@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F40D7EC128FE41120066F5C9 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40D7EC028FE41120066F5C9 /* SearchResultCell.swift */; };
 		F430645028FE38CF0044B1D7 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430644F28FE38CF0044B1D7 /* SearchController.swift */; };
 		F4E40E1228FCD79E00D294BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E40E1128FCD79E00D294BA /* AppDelegate.swift */; };
 		F4E40E1428FCD79E00D294BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E40E1328FCD79E00D294BA /* SceneDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F40D7EC028FE41120066F5C9 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		F430644F28FE38CF0044B1D7 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		F4E40E0E28FCD79E00D294BA /* AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4E40E1128FCD79E00D294BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F40D7EBF28FE40E90066F5C9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F40D7EC028FE41120066F5C9 /* SearchResultCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F430644C28FE36F60044B1D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +77,7 @@
 		F4E40E1028FCD79E00D294BA /* AppStore */ = {
 			isa = PBXGroup;
 			children = (
+				F40D7EBF28FE40E90066F5C9 /* Views */,
 				F430644C28FE36F60044B1D7 /* Controllers */,
 				F4E40E1128FCD79E00D294BA /* AppDelegate.swift */,
 				F4E40E1328FCD79E00D294BA /* SceneDelegate.swift */,
@@ -152,6 +163,7 @@
 				F430645028FE38CF0044B1D7 /* SearchController.swift in Sources */,
 				F4E40E1228FCD79E00D294BA /* AppDelegate.swift in Sources */,
 				F4E40E1428FCD79E00D294BA /* SceneDelegate.swift in Sources */,
+				F40D7EC128FE41120066F5C9 /* SearchResultCell.swift in Sources */,
 				F4E40E2628FCD90100D294BA /* MainTabBarContoller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
