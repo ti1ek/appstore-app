@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F430645028FE38CF0044B1D7 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430644F28FE38CF0044B1D7 /* SearchController.swift */; };
 		F4E40E1228FCD79E00D294BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E40E1128FCD79E00D294BA /* AppDelegate.swift */; };
 		F4E40E1428FCD79E00D294BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E40E1328FCD79E00D294BA /* SceneDelegate.swift */; };
 		F4E40E1628FCD79E00D294BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E40E1528FCD79E00D294BA /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F430644F28FE38CF0044B1D7 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		F4E40E0E28FCD79E00D294BA /* AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4E40E1128FCD79E00D294BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4E40E1328FCD79E00D294BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F430644C28FE36F60044B1D7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F4E40E2528FCD90000D294BA /* MainTabBarContoller.swift */,
+				F430644F28FE38CF0044B1D7 /* SearchController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		F4E40E0528FCD79E00D294BA = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +67,9 @@
 		F4E40E1028FCD79E00D294BA /* AppStore */ = {
 			isa = PBXGroup;
 			children = (
+				F430644C28FE36F60044B1D7 /* Controllers */,
 				F4E40E1128FCD79E00D294BA /* AppDelegate.swift */,
 				F4E40E1328FCD79E00D294BA /* SceneDelegate.swift */,
-				F4E40E2528FCD90000D294BA /* MainTabBarContoller.swift */,
 				F4E40E1528FCD79E00D294BA /* ViewController.swift */,
 				F4E40E1A28FCD7A700D294BA /* Assets.xcassets */,
 				F4E40E1C28FCD7A700D294BA /* LaunchScreen.storyboard */,
@@ -138,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4E40E1628FCD79E00D294BA /* ViewController.swift in Sources */,
+				F430645028FE38CF0044B1D7 /* SearchController.swift in Sources */,
 				F4E40E1228FCD79E00D294BA /* AppDelegate.swift in Sources */,
 				F4E40E1428FCD79E00D294BA /* SceneDelegate.swift in Sources */,
 				F4E40E2628FCD90100D294BA /* MainTabBarContoller.swift in Sources */,
