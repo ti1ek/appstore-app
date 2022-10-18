@@ -41,7 +41,11 @@ class SearchResultCell: UICollectionViewCell {
         let button = UIButton(type: .system)
         button.setTitle("GET", for: .normal)
         button.setTitleColor(.blue, for: .normal)
+        button.backgroundColor = UIColor(white: 0.95, alpha: 1)
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
+        button.widthAnchor.constraint(equalToConstant: 80).isActive = false
+        button.heightAnchor.constraint(equalToConstant: 32).isActive = false
+        button.layer.cornerRadius = 16
         return button
     }()
     
@@ -67,8 +71,8 @@ class SearchResultCell: UICollectionViewCell {
         
         stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
 
     }
     
