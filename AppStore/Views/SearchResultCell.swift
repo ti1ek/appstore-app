@@ -9,13 +9,12 @@ import UIKit
 
 class SearchResultCell: UICollectionViewCell {
     
-    let imageView: UIImageView = {
+    let appIconimageView: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .red
         image.layer.cornerRadius = 12
         image.widthAnchor.constraint(equalToConstant: 64).isActive = true
         image.heightAnchor.constraint(equalToConstant: 64).isActive = true
-
         return image
     }()
     
@@ -33,7 +32,7 @@ class SearchResultCell: UICollectionViewCell {
     
     let ratingLabel: UILabel = {
         let label = UILabel()
-        label.text = "9.25"
+        label.text = "9.25M"
         return label
     }()
     
@@ -43,15 +42,25 @@ class SearchResultCell: UICollectionViewCell {
         button.setTitleColor(.blue, for: .normal)
         button.backgroundColor = UIColor(white: 0.95, alpha: 1)
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.widthAnchor.constraint(equalToConstant: 80).isActive = false
-        button.heightAnchor.constraint(equalToConstant: 32).isActive = false
+        button.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 32).isActive = true
         button.layer.cornerRadius = 16
         return button
     }()
     
+    lazy var screenshot1ImageView = self.createScreenshotImageView()
+    lazy var screenshot2ImageView = self.createScreenshotImageView()
+    lazy var screenshot3ImageView = self.createScreenshotImageView()
+    
+    func createScreenshotImageView() -> UIImageView {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .blue
+        return imageView
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .green
+        //backgroundColor = .yellow
         
         let labelsStackView = UIStackView(arrangedSubviews: [
         nameLabel, categoryLabel, ratingLabel
@@ -59,20 +68,35 @@ class SearchResultCell: UICollectionViewCell {
         
         labelsStackView.axis = .vertical
         
-        let stackView = UIStackView(arrangedSubviews: [
-        imageView, labelsStackView, getButton
+        let infoTopStackView = UIStackView(arrangedSubviews: [
+        appIconimageView, labelsStackView, getButton
         ])
         
-        stackView.spacing = 12
-        stackView.alignment = .center
+        infoTopStackView.spacing = 12
+        infoTopStackView.alignment = .center
         
-        addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        let screenshotsStackView = UIStackView(arrangedSubviews: [
+        screenshot1ImageView, screenshot2ImageView,screenshot3ImageView
+        ])
+        screenshotsStackView.spacing = 12
+        screenshotsStackView.distribution = .fillEqually
         
-        stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
+        let overallStackView = UIStackView(arrangedSubviews: [
+        infoTopStackView, screenshotsStackView
+        ])
+        overallStackView.axis = .vertical
+        overallStackView.spacing = 16
+        
+        addSubview(overallStackView)
+        
+        overallStackView.fillSuperview(padding: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        )
+//        stackView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+//        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+//        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
+//        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
 
     }
     
