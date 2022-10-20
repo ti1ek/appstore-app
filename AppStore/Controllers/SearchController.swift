@@ -8,9 +8,11 @@
 import UIKit
 import SDWebImage
 
-class SearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class SearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     fileprivate let identifier = "cellData"
+    
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
     
     var appResults = [Result]()
 
@@ -20,11 +22,35 @@ class SearchController: UICollectionViewController, UICollectionViewDelegateFlow
         collectionView.register(SearchResultCell.self,
                                 forCellWithReuseIdentifier: identifier)
         
+        setupSearchBar()
+        
         fetchITunesApps()
     }
     
+    fileprivate func setupSearchBar() {
+        navigationItem.searchController = self.searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.delegate = self
+    }
+    
+    var timer: Timer?
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: { _ in
+            Service.shared.fetchApps(searchTerm: searchText) { result, error in
+                self.appResults = result
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        })
+    }
+
+    
     fileprivate func fetchITunesApps() {
-        Service.shared.fetchApps { (results, error) in
+        Service.shared.fetchApps(searchTerm: "Twitter") { (results, error) in
             
             if let error = error {
                 print("Failed to fetch apps:", error)
