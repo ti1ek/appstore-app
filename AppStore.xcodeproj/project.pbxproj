@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F40CCEAA2900528F0073CBEA /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40CCEA92900528F0073CBEA /* VerticalStackView.swift */; };
 		F40D7EC128FE41120066F5C9 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40D7EC028FE41120066F5C9 /* SearchResultCell.swift */; };
+		F418FEB92900D1360069D34A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = F418FEB82900D1360069D34A /* Service.swift */; };
 		F430645028FE38CF0044B1D7 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430644F28FE38CF0044B1D7 /* SearchController.swift */; };
 		F4982B2128FEA193004BA61F /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4982B2028FEA193004BA61F /* UIView+Layout.swift */; };
 		F4A92730290063D50041DD70 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A9272F290063D50041DD70 /* SearchResult.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		F40CCEA92900528F0073CBEA /* VerticalStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		F40D7EC028FE41120066F5C9 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		F418FEB82900D1360069D34A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		F430644F28FE38CF0044B1D7 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		F4982B2028FEA193004BA61F /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		F4A9272F290063D50041DD70 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 				F40D7EC028FE41120066F5C9 /* SearchResultCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F418FEB72900D1210069D34A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F418FEB82900D1360069D34A /* Service.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		F430644C28FE36F60044B1D7 /* Controllers */ = {
@@ -100,6 +110,7 @@
 		F4E40E1028FCD79E00D294BA /* AppStore */ = {
 			isa = PBXGroup;
 			children = (
+				F418FEB72900D1210069D34A /* Service */,
 				F4A9272E290063AD0041DD70 /* Model */,
 				F4982B1F28FEA184004BA61F /* Helper */,
 				F40D7EBF28FE40E90066F5C9 /* Views */,
@@ -191,6 +202,7 @@
 				F4E40E1228FCD79E00D294BA /* AppDelegate.swift in Sources */,
 				F4E40E1428FCD79E00D294BA /* SceneDelegate.swift in Sources */,
 				F40CCEAA2900528F0073CBEA /* VerticalStackView.swift in Sources */,
+				F418FEB92900D1360069D34A /* Service.swift in Sources */,
 				F40D7EC128FE41120066F5C9 /* SearchResultCell.swift in Sources */,
 				F4E40E2628FCD90100D294BA /* MainTabBarContoller.swift in Sources */,
 			);
