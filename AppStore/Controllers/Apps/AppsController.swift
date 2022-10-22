@@ -14,7 +14,7 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = . yellow
+        collectionView.backgroundColor = .white
         
         collectionView.register(AppsGroupCell.self, forCellWithReuseIdentifier: identifier)
     }
@@ -32,5 +32,7 @@ class AppsController: BaseListController, UICollectionViewDelegateFlowLayout {
         return cell
     }
     
-
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 16, left: 0, bottom: 0, right: 0)
+    }
 }
