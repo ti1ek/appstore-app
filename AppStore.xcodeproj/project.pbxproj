@@ -20,6 +20,7 @@
 		F4982B2128FEA193004BA61F /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4982B2028FEA193004BA61F /* UIView+Layout.swift */; };
 		F4A92730290063D50041DD70 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A9272F290063D50041DD70 /* SearchResult.swift */; };
 		F4AAE1AF290226A400262921 /* AppsGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AAE1AE290226A400262921 /* AppsGroupCell.swift */; };
+		F4B4ECDF29061E930094A6AD /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4ECDE29061E930094A6AD /* AppGroup.swift */; };
 		F4C6868429021CBF00E6D5E9 /* AppsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6868329021CBF00E6D5E9 /* AppsPageController.swift */; };
 		F4C6868629021E5D00E6D5E9 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C6868529021E5D00E6D5E9 /* BaseListController.swift */; };
 		F4DE9BB22902FC0400115E3C /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DE9BB12902FC0400115E3C /* AppsHorizontalController.swift */; };
@@ -44,6 +45,7 @@
 		F4982B2028FEA193004BA61F /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		F4A9272F290063D50041DD70 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		F4AAE1AE290226A400262921 /* AppsGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCell.swift; sourceTree = "<group>"; };
+		F4B4ECDE29061E930094A6AD /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		F4C6868329021CBF00E6D5E9 /* AppsPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsPageController.swift; sourceTree = "<group>"; };
 		F4C6868529021E5D00E6D5E9 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		F4DE9BB12902FC0400115E3C /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				F4A9272F290063D50041DD70 /* SearchResult.swift */,
+				F4B4ECDE29061E930094A6AD /* AppGroup.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -127,10 +130,10 @@
 		F4C6868229021CA500E6D5E9 /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				F4C6868329021CBF00E6D5E9 /* AppsPageController.swift */,
 				F43F33812904C45300920B29 /* AppsPageHeader.swift */,
 				F43F33832904C86800920B29 /* AppsHeaderHorizontalController.swift */,
 				F43F33852904CB5D00920B29 /* AppsHeaderCell.swift */,
-				F4C6868329021CBF00E6D5E9 /* AppsPageController.swift */,
 				F4DE9BB12902FC0400115E3C /* AppsHorizontalController.swift */,
 			);
 			path = Apps;
@@ -269,6 +272,7 @@
 				F40D7EC128FE41120066F5C9 /* SearchResultCell.swift in Sources */,
 				F43D0BCB29036E7900D1A385 /* Extensions.swift in Sources */,
 				F4C6868629021E5D00E6D5E9 /* BaseListController.swift in Sources */,
+				F4B4ECDF29061E930094A6AD /* AppGroup.swift in Sources */,
 				F43F33862904CB5D00920B29 /* AppsHeaderCell.swift in Sources */,
 				F4E40E2628FCD90100D294BA /* MainTabBarContoller.swift in Sources */,
 				F4DE9BB22902FC0400115E3C /* AppsHorizontalController.swift in Sources */,
