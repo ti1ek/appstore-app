@@ -9,7 +9,7 @@ import UIKit
 
 class AppRowCell: UICollectionViewCell {
     
-    let imageView = UIImageView(cornerRadius: 8)
+    let imageView = UIImageView(cornerRadius: 12)
     
     let nameLabel = UILabel(text: "App Name", font: .systemFont(ofSize: 20))
     let companyLabel = UILabel(text: "Company Name", font: .systemFont(ofSize: 13))
@@ -19,9 +19,9 @@ class AppRowCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        imageView.backgroundColor = .purple
-        imageView.constrainWidth(constant: 64)
-        imageView.constrainHeight(constant: 64)
+        imageView.widthAnchor.constraint(equalToConstant: 64).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 64).isActive = true
+        imageView.clipsToBounds = true
         
         getButton.backgroundColor = UIColor(white: 0.95, alpha: 1)
         getButton.constrainWidth(constant: 80)

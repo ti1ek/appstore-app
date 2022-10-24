@@ -36,7 +36,9 @@ class Service {
     }
     
     func fetchTopFreeApp(completion: @escaping (AppGroup?, Error?) -> ()) {
-        guard let url = URL(string: "https://rss.applemarketingtools.com/api/v2/gb/apps/top-free/10/apps.json") else { return }
+        
+        let urlString = "https://rss.applemarketingtools.com/api/v2/us/apps/top-free/50/apps.json"
+        guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             
@@ -50,7 +52,6 @@ class Service {
             
             do {
                 let appGroup = try JSONDecoder().decode(AppGroup.self, from: data)
-                appGroup.feed.results.forEach({print($0.name)})
                 completion(appGroup, nil)
             } catch {
                 completion(nil, error)

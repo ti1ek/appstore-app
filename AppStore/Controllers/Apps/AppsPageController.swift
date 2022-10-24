@@ -24,6 +24,8 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         fetchData()
     }
     
+    var topFreeApp: AppGroup?
+    
     fileprivate func fetchData() {
         print("Fetching new JSON Data")
         Service.shared.fetchTopFreeApp { appGroup, error in
@@ -31,7 +33,11 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
                 print("Failed \(error)")
                 return
             }
-            print(appGroup?.feed.results)
+            self.topFreeApp = appGroup
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
     }
     
@@ -49,11 +55,14 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsGroupCell
+        cell.titleLabel.text = topFreeApp?.feed.title
+        cell.horizontalController.appGroup = topFreeApp
+        cell.horizontalController.collectionView.reloadData()
         return cell
     }
     
