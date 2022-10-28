@@ -19,6 +19,8 @@
 		F43F33862904CB5D00920B29 /* AppsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43F33852904CB5D00920B29 /* AppsHeaderCell.swift */; };
 		F4982B2128FEA193004BA61F /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4982B2028FEA193004BA61F /* UIView+Layout.swift */; };
 		F4A0E3362908B9D3001314BC /* SocialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A0E3352908B9D3001314BC /* SocialApp.swift */; };
+		F4A0E338290B5A3F001314BC /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A0E337290B5A3F001314BC /* HorizontalSnappingController.swift */; };
+		F4A0E33A290B629B001314BC /* BetterSnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A0E339290B629B001314BC /* BetterSnappingLayout.swift */; };
 		F4A92730290063D50041DD70 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A9272F290063D50041DD70 /* SearchResult.swift */; };
 		F4AAE1AF290226A400262921 /* AppsGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AAE1AE290226A400262921 /* AppsGroupCell.swift */; };
 		F4B4ECDF29061E930094A6AD /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4ECDE29061E930094A6AD /* AppGroup.swift */; };
@@ -45,6 +47,8 @@
 		F43F33852904CB5D00920B29 /* AppsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderCell.swift; sourceTree = "<group>"; };
 		F4982B2028FEA193004BA61F /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		F4A0E3352908B9D3001314BC /* SocialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialApp.swift; sourceTree = "<group>"; };
+		F4A0E337290B5A3F001314BC /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
+		F4A0E339290B629B001314BC /* BetterSnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSnappingLayout.swift; sourceTree = "<group>"; };
 		F4A9272F290063D50041DD70 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		F4AAE1AE290226A400262921 /* AppsGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCell.swift; sourceTree = "<group>"; };
 		F4B4ECDE29061E930094A6AD /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
@@ -93,10 +97,11 @@
 		F430644C28FE36F60044B1D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F4A0E337290B5A3F001314BC /* HorizontalSnappingController.swift */,
 				F4C6868529021E5D00E6D5E9 /* BaseListController.swift */,
+				F4E40E2528FCD90000D294BA /* MainTabBarContoller.swift */,
 				F4C6868729021F1900E6D5E9 /* Search */,
 				F4C6868229021CA500E6D5E9 /* Apps */,
-				F4E40E2528FCD90000D294BA /* MainTabBarContoller.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 				F4982B2028FEA193004BA61F /* UIView+Layout.swift */,
 				F40CCEA92900528F0073CBEA /* VerticalStackView.swift */,
 				F43D0BCA29036E7900D1A385 /* Extensions.swift */,
+				F4A0E339290B629B001314BC /* BetterSnappingLayout.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -269,6 +275,8 @@
 				F4E40E1228FCD79E00D294BA /* AppDelegate.swift in Sources */,
 				F4AAE1AF290226A400262921 /* AppsGroupCell.swift in Sources */,
 				F4E40E1428FCD79E00D294BA /* SceneDelegate.swift in Sources */,
+				F4A0E338290B5A3F001314BC /* HorizontalSnappingController.swift in Sources */,
+				F4A0E33A290B629B001314BC /* BetterSnappingLayout.swift in Sources */,
 				F40CCEAA2900528F0073CBEA /* VerticalStackView.swift in Sources */,
 				F418FEB92900D1360069D34A /* Service.swift in Sources */,
 				F43F33842904C86800920B29 /* AppsHeaderHorizontalController.swift in Sources */,
