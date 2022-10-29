@@ -21,6 +21,7 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         return aiv
     }()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
@@ -104,6 +105,11 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         cell.titleLabel.text = appGroup.feed.title
         cell.horizontalController.appGroup =  appGroup
         cell.horizontalController.collectionView.reloadData()
+        cell.horizontalController.didSelectHandler = { [weak self] feedResult in
+            let redController = AppDetailController()
+            redController.title = feedResult.name
+            self?.navigationController?.pushViewController(redController, animated: true)
+        }
         return cell
     }
     
