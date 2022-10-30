@@ -22,6 +22,7 @@
 		F4A0E338290B5A3F001314BC /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A0E337290B5A3F001314BC /* HorizontalSnappingController.swift */; };
 		F4A0E33A290B629B001314BC /* BetterSnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A0E339290B629B001314BC /* BetterSnappingLayout.swift */; };
 		F4A0E33D290CB254001314BC /* AppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A0E33C290CB254001314BC /* AppDetailController.swift */; };
+		F4A0E340290E144D001314BC /* AppDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A0E33F290E144D001314BC /* AppDetailCell.swift */; };
 		F4A92730290063D50041DD70 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A9272F290063D50041DD70 /* SearchResult.swift */; };
 		F4AAE1AF290226A400262921 /* AppsGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AAE1AE290226A400262921 /* AppsGroupCell.swift */; };
 		F4B4ECDF29061E930094A6AD /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4ECDE29061E930094A6AD /* AppGroup.swift */; };
@@ -51,6 +52,7 @@
 		F4A0E337290B5A3F001314BC /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		F4A0E339290B629B001314BC /* BetterSnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSnappingLayout.swift; sourceTree = "<group>"; };
 		F4A0E33C290CB254001314BC /* AppDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailController.swift; sourceTree = "<group>"; };
+		F4A0E33F290E144D001314BC /* AppDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailCell.swift; sourceTree = "<group>"; };
 		F4A9272F290063D50041DD70 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		F4AAE1AE290226A400262921 /* AppsGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsGroupCell.swift; sourceTree = "<group>"; };
 		F4B4ECDE29061E930094A6AD /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
@@ -127,6 +129,14 @@
 			path = Details;
 			sourceTree = "<group>";
 		};
+		F4A0E33E290E1432001314BC /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				F4A0E33F290E144D001314BC /* AppDetailCell.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		F4A9272E290063AD0041DD70 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +150,7 @@
 		F4AAE1AD2902268F00262921 /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				F4A0E33E290E1432001314BC /* Details */,
 				F4AAE1AE290226A400262921 /* AppsGroupCell.swift */,
 				F43D0BC829036D4800D1A385 /* AppRowCell.swift */,
 			);
@@ -297,6 +308,7 @@
 				F43D0BCB29036E7900D1A385 /* Extensions.swift in Sources */,
 				F4C6868629021E5D00E6D5E9 /* BaseListController.swift in Sources */,
 				F4B4ECDF29061E930094A6AD /* AppGroup.swift in Sources */,
+				F4A0E340290E144D001314BC /* AppDetailCell.swift in Sources */,
 				F43F33862904CB5D00920B29 /* AppsHeaderCell.swift in Sources */,
 				F4E40E2628FCD90100D294BA /* MainTabBarContoller.swift in Sources */,
 				F4DE9BB22902FC0400115E3C /* AppsHorizontalController.swift in Sources */,

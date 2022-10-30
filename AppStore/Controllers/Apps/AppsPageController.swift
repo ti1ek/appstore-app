@@ -106,9 +106,11 @@ class AppsPageController: BaseListController, UICollectionViewDelegateFlowLayout
         cell.horizontalController.appGroup =  appGroup
         cell.horizontalController.collectionView.reloadData()
         cell.horizontalController.didSelectHandler = { [weak self] feedResult in
-            let redController = AppDetailController()
-            redController.title = feedResult.name
-            self?.navigationController?.pushViewController(redController, animated: true)
+            
+            let controller = AppDetailController()
+            controller.appId = feedResult.id
+            controller.title = feedResult.name
+            self?.navigationController?.pushViewController(controller, animated: true)
         }
         return cell
     }
