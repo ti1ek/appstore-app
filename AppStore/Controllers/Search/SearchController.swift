@@ -15,6 +15,13 @@ class SearchController: BaseListController, UICollectionViewDelegateFlowLayout, 
     fileprivate let searchController = UISearchController(searchResultsController: nil)
     
     var appResults = [Result]()
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+      
+        let appId = String(appResults[indexPath.item].trackId)
+        let appDetailController = AppDetailController(appId: appId)
+        navigationController?.pushViewController(appDetailController, animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

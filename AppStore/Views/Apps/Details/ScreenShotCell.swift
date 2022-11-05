@@ -16,7 +16,7 @@ class ScreenShotCell: UICollectionViewCell {
         
         addSubview(imageView)
         imageView.fillSuperview()
-        imageView.backgroundColor = .purple
+        //imageView.backgroundColor = .purple
     }
     
     required init?(coder: NSCoder) {
