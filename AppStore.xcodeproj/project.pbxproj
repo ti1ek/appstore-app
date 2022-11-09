@@ -21,6 +21,7 @@
 		F44DBAA42917444200F59ADD /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DBAA32917444200F59ADD /* TodayCell.swift */; };
 		F4678CE22919E4DF00B58EF6 /* AppFullScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4678CE12919E4DF00B58EF6 /* AppFullScreenController.swift */; };
 		F4678CE42919E8CA00B58EF6 /* AppFullScreenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4678CE32919E8CA00B58EF6 /* AppFullScreenDescriptionCell.swift */; };
+		F4678CE6291B3A9B00B58EF6 /* AppFullScreenHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4678CE5291B3A9B00B58EF6 /* AppFullScreenHeaderCell.swift */; };
 		F4982B2128FEA193004BA61F /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4982B2028FEA193004BA61F /* UIView+Layout.swift */; };
 		F4A0E3362908B9D3001314BC /* SocialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A0E3352908B9D3001314BC /* SocialApp.swift */; };
 		F4A0E338290B5A3F001314BC /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A0E337290B5A3F001314BC /* HorizontalSnappingController.swift */; };
@@ -62,6 +63,7 @@
 		F44DBAA32917444200F59ADD /* TodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
 		F4678CE12919E4DF00B58EF6 /* AppFullScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullScreenController.swift; sourceTree = "<group>"; };
 		F4678CE32919E8CA00B58EF6 /* AppFullScreenDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullScreenDescriptionCell.swift; sourceTree = "<group>"; };
+		F4678CE5291B3A9B00B58EF6 /* AppFullScreenHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullScreenHeaderCell.swift; sourceTree = "<group>"; };
 		F4982B2028FEA193004BA61F /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		F4A0E3352908B9D3001314BC /* SocialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialApp.swift; sourceTree = "<group>"; };
 		F4A0E337290B5A3F001314BC /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
@@ -139,7 +141,6 @@
 			children = (
 				F44DBAA0291742F100F59ADD /* TodayController.swift */,
 				F4678CE12919E4DF00B58EF6 /* AppFullScreenController.swift */,
-				F4678CE32919E8CA00B58EF6 /* AppFullScreenDescriptionCell.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -148,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				F44DBAA32917444200F59ADD /* TodayCell.swift */,
+				F4678CE5291B3A9B00B58EF6 /* AppFullScreenHeaderCell.swift */,
+				F4678CE32919E8CA00B58EF6 /* AppFullScreenDescriptionCell.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				F4982B2128FEA193004BA61F /* UIView+Layout.swift in Sources */,
 				F4A0E3362908B9D3001314BC /* SocialApp.swift in Sources */,
 				F4C6868429021CBF00E6D5E9 /* AppsPageController.swift in Sources */,
+				F4678CE6291B3A9B00B58EF6 /* AppFullScreenHeaderCell.swift in Sources */,
 				F4A92730290063D50041DD70 /* SearchResult.swift in Sources */,
 				F4CB3D602910A6CA00C9A2FF /* PreviewScreenshotsController.swift in Sources */,
 				F4678CE42919E8CA00B58EF6 /* AppFullScreenDescriptionCell.swift in Sources */,
