@@ -11,13 +11,16 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     fileprivate let cellId = "CellID"
     
+    let items = [
+        TodayItem.init(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the apps and tools you need to intelligently organize your life the right way.", backgroundColor: .white),
+        TodayItem.init(category: "HOLIDAYS", title: "Travel on a budget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everyting!", backgroundColor: #colorLiteral(red: 0.9789130092, green: 0.9626896977, blue: 0.7274394631, alpha: 1))
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.isNavigationBarHidden = true
-        
-        collectionView.backgroundColor = UIColor(white: 0.95, alpha: 1)
-        
+        collectionView.backgroundColor = #colorLiteral(red: 0.9490197301, green: 0.9490197301, blue: 0.9490196109, alpha: 1)
         collectionView.register(TodayCell.self, forCellWithReuseIdentifier: cellId)
     }
     
@@ -30,31 +33,39 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let appFullScreenController = AppFullScreenController()
-        let redView = appFullScreenController.view!
-        redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRemoveRedView)))
+        appFullScreenController.todayItem = items[indexPath.row ]
+        appFullScreenController.dismissHandler = {
+            self.handleRemoveRedView()
+        }
+            
+        let fullScreenView = appFullScreenController.view!
+        view.addSubview(fullScreenView)
 
-        view.addSubview(redView)
+        
         addChild(appFullScreenController)
+        
         self.appFullScreenController = appFullScreenController
         
         guard let cell = collectionView.cellForItem(at: indexPath) else { return }
         
         guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
+        
         self.startingFrame = startingFrame
         
-        redView.translatesAutoresizingMaskIntoConstraints = false
+        fullScreenView.translatesAutoresizingMaskIntoConstraints = false
         
-        topConstraint = redView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
-        leadingConstraint = redView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
-        widthConstraint = redView.widthAnchor.constraint(equalToConstant: startingFrame.width)
-        heightConstraint = redView.heightAnchor.constraint(equalToConstant: startingFrame.height)
+        topConstraint = fullScreenView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
+        leadingConstraint = fullScreenView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
+        widthConstraint = fullScreenView.widthAnchor.constraint(equalToConstant: startingFrame.width)
+        heightConstraint = fullScreenView.heightAnchor.constraint(equalToConstant: startingFrame.height)
         
         [topConstraint, leadingConstraint, widthConstraint, heightConstraint].forEach ({$0?.isActive = true})
         self.view.layoutIfNeeded()
         
         //redView.frame = startingFrame
-        redView.layer.cornerRadius = 16
+        fullScreenView.layer.cornerRadius = 16
         
         UIView.animate(withDuration: 0.7 , delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
 
@@ -77,15 +88,13 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     var startingFrame: CGRect?
     
-    @objc func handleRemoveRedView(gesture: UITapGestureRecognizer) {
+    @objc func handleRemoveRedView() {
        
         UIView.animate(withDuration: 0.7 , delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
            
            // gesture.view?.frame = self.startingFrame ?? .zero
             
-            guard let startingFrame = self.startingFrame else {
-                return
-            }
+            guard let startingFrame = self.startingFrame else {return}
 
             
             self.topConstraint?.constant = startingFrame.origin.y
@@ -98,19 +107,20 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.tabBarController?.tabBar.isHidden = false
             
         }, completion: {_ in
-            gesture.view?.removeFromSuperview()
+            self.appFullScreenController.view.removeFromSuperview()
             self.appFullScreenController.removeFromParent()
 
         })
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return items.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! TodayCell
-        
+        cell.todayItem = items[indexPath.item]
+
         return cell
     }
     
