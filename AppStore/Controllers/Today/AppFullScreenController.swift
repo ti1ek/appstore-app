@@ -18,6 +18,8 @@ class AppFullScreenController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
+        tableView.contentInsetAdjustmentBehavior = .never
+        tableView.contentInset = .init(top: 0, left: 0, bottom: 24, right: 0)
         
     }
     
@@ -30,6 +32,7 @@ class AppFullScreenController: UITableViewController {
             let headerCell = AppFullScreenHeaderCell()
             headerCell.closeButton.addTarget(self, action: #selector(self.handleDismiss), for: .touchUpInside)
             headerCell.todayCell.todayItem = todayItem
+            headerCell.todayCell.layer.cornerRadius = 0
             return headerCell
         }
         
@@ -40,7 +43,7 @@ class AppFullScreenController: UITableViewController {
     @objc fileprivate func handleDismiss(button: UIButton) {
         button.isHidden = true
         dismissHandler?()
-        
+
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -50,13 +53,4 @@ class AppFullScreenController: UITableViewController {
         }
         return super.tableView(tableView, heightForRowAt: indexPath)
     }
-    
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let header = TodayCell()
-//        return header
-//    }
-//
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 450
-//    }
 }

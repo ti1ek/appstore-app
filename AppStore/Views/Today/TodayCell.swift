@@ -15,6 +15,8 @@ class TodayCell: UICollectionViewCell {
             titleLabel.text = todayItem.title
             imageView.image = todayItem.image
             descriptionLabel.text = todayItem.description
+            
+            backgroundColor = todayItem.backgroundColor
         }
     }
     
@@ -25,11 +27,13 @@ class TodayCell: UICollectionViewCell {
     
     let descriptionLabel = UILabel(text: "All the apps and tools you need to intelligently organize your life the right way.", font: .systemFont(ofSize: 16), numberOfLines: 3)
     
+    var topConstraint: NSLayoutConstraint!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         backgroundColor = .white
-        //clipsToBounds = true
+        clipsToBounds = true
         layer.cornerRadius = 16
         
         imageView.contentMode = .scaleAspectFill
@@ -44,11 +48,13 @@ class TodayCell: UICollectionViewCell {
         ], spacing: 8)
         
         addSubview(stackView)
-        stackView.fillSuperview(padding: .init(top: 24, left: 24, bottom: 24, right: 24))
+        stackView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top:  24, left: 24, bottom: 24, right: 24))
         
-        //addSubview(imageView)
-        //imageView.centerInSuperview(size: .init(width: 200, height: 200))
-        //imageView.contentMode = .scaleAspectFill
+        self.topConstraint = stackView.topAnchor.constraint(equalTo: topAnchor, constant: 24)
+        self.topConstraint.isActive = true
+        
+        //stackView.fillSuperview(padding: .init(top: 24, left: 24, bottom: 24, right: 24))
+        
     }
     
     required init?(coder: NSCoder) {

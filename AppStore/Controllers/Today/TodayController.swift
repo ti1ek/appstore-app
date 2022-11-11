@@ -39,6 +39,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         appFullScreenController.dismissHandler = {
             self.handleRemoveRedView()
         }
+        
             
         let fullScreenView = appFullScreenController.view!
         view.addSubview(fullScreenView)
@@ -47,6 +48,8 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         addChild(appFullScreenController)
         
         self.appFullScreenController = appFullScreenController
+        
+        self.collectionView.isUserInteractionEnabled = false
         
         guard let cell = collectionView.cellForItem(at: indexPath) else { return }
         
@@ -79,10 +82,13 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.view.layoutIfNeeded()
             
             self.tabBarController?.tabBar.isHidden = true
+            
+            guard let cell = appFullScreenController.tableView.cellForRow(at: [0, 0]) as? AppFullScreenHeaderCell else {return}
+            
+            cell.todayCell.topConstraint.constant = 48
+            cell.layoutIfNeeded()
 
         }, completion: nil)
-        
-     
     }
     
     
@@ -106,9 +112,15 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             
             self.tabBarController?.tabBar.isHidden = false
             
+            guard let cell = self.appFullScreenController.tableView.cellForRow(at: [0, 0]) as? AppFullScreenHeaderCell else {return}
+            
+            cell.todayCell.topConstraint.constant = 24
+            cell.layoutIfNeeded()
+            
         }, completion: {_ in
             self.appFullScreenController.view.removeFromSuperview()
             self.appFullScreenController.removeFromParent()
+            self.collectionView.isUserInteractionEnabled = true
 
         })
     }
