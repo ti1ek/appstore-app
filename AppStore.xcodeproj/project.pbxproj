@@ -48,6 +48,8 @@
 		F4E40E1B28FCD7A700D294BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4E40E1A28FCD7A700D294BA /* Assets.xcassets */; };
 		F4E40E1E28FCD7A700D294BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4E40E1C28FCD7A700D294BA /* LaunchScreen.storyboard */; };
 		F4E40E2628FCD90100D294BA /* MainTabBarContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E40E2528FCD90000D294BA /* MainTabBarContoller.swift */; };
+		F4F64736291F3A4C0002F8A5 /* TodayMultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F64735291F3A4C0002F8A5 /* TodayMultipleAppCell.swift */; };
+		F4F64738291F45B70002F8A5 /* BaseTodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F64737291F45B70002F8A5 /* BaseTodayCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +95,8 @@
 		F4E40E1D28FCD7A700D294BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4E40E1F28FCD7A700D294BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4E40E2528FCD90000D294BA /* MainTabBarContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarContoller.swift; sourceTree = "<group>"; };
+		F4F64735291F3A4C0002F8A5 /* TodayMultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleAppCell.swift; sourceTree = "<group>"; };
+		F4F64737291F45B70002F8A5 /* BaseTodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTodayCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,8 @@
 				F44DBAA32917444200F59ADD /* TodayCell.swift */,
 				F4678CE5291B3A9B00B58EF6 /* AppFullScreenHeaderCell.swift */,
 				F4678CE32919E8CA00B58EF6 /* AppFullScreenDescriptionCell.swift */,
+				F4F64735291F3A4C0002F8A5 /* TodayMultipleAppCell.swift */,
+				F4F64737291F45B70002F8A5 /* BaseTodayCell.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 				F43F33842904C86800920B29 /* AppsHeaderHorizontalController.swift in Sources */,
 				F43F33822904C45300920B29 /* AppsPageHeader.swift in Sources */,
 				F40D7EC128FE41120066F5C9 /* SearchResultCell.swift in Sources */,
+				F4F64738291F45B70002F8A5 /* BaseTodayCell.swift in Sources */,
 				F43D0BCB29036E7900D1A385 /* Extensions.swift in Sources */,
 				F4DA5C072911F82D00F240BC /* ReviewCell.swift in Sources */,
 				F4C6868629021E5D00E6D5E9 /* BaseListController.swift in Sources */,
@@ -380,6 +387,7 @@
 				F4E40E2628FCD90100D294BA /* MainTabBarContoller.swift in Sources */,
 				F4DE9BB22902FC0400115E3C /* AppsHorizontalController.swift in Sources */,
 				F43D0BC929036D4900D1A385 /* AppRowCell.swift in Sources */,
+				F4F64736291F3A4C0002F8A5 /* TodayMultipleAppCell.swift in Sources */,
 				F4678CE22919E4DF00B58EF6 /* AppFullScreenController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
