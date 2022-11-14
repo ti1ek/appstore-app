@@ -13,15 +13,15 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     fileprivate let multipleAppCellId = "multipleAppCellId"
     
     let items = [
-        TodayItem.init(category: "THE DAILY LIST", title: "Test-Drive These CarPlay Apps", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, cellType: .multiple),
         TodayItem.init(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the apps and tools you need to intelligently organize your life the right way.", backgroundColor: .white, cellType: .single),
+        TodayItem.init(category: "THE DAILY LIST", title: "Test-Drive These CarPlay Apps", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, cellType: .multiple),
         TodayItem.init(category: "HOLIDAYS", title: "Travel on a budget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everyting!", backgroundColor: #colorLiteral(red: 0.9789130092, green: 0.9626896977, blue: 0.7274394631, alpha: 1), cellType: .single)
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-          
-//
+        
+        //
         
         navigationController?.isNavigationBarHidden = true
         collectionView.backgroundColor = #colorLiteral(red: 0.9490197301, green: 0.9490197301, blue: 0.9490196109, alpha: 1)
@@ -39,16 +39,23 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        if items[indexPath.item].cellType == .multiple {
+            let fullController = TodayMultipleAppsController(mode: .fullScreen)
+            fullController.modalPresentationStyle = .fullScreen
+            present(fullController, animated: true)
+            return
+        }
+        
         let appFullScreenController = AppFullScreenController()
         appFullScreenController.todayItem = items[indexPath.row ]
         appFullScreenController.dismissHandler = {
             self.handleRemoveRedView()
         }
         
-            
+        
         let fullScreenView = appFullScreenController.view!
         view.addSubview(fullScreenView)
-
+        
         
         addChild(appFullScreenController)
         
@@ -76,7 +83,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         fullScreenView.layer.cornerRadius = 16
         
         UIView.animate(withDuration: 0.7 , delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
-
+            
             
             self.appFullScreenController.tableView.contentOffset = .zero
             self.topConstraint?.constant = 0
@@ -92,7 +99,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             
             cell.todayCell.topConstraint.constant = 48
             cell.layoutIfNeeded()
-
+            
         }, completion: nil)
     }
     
@@ -100,13 +107,13 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     var startingFrame: CGRect?
     
     @objc func handleRemoveRedView() {
-       
+        
         UIView.animate(withDuration: 0.7 , delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
-           
-           // gesture.view?.frame = self.startingFrame ?? .zero
+            
+            // gesture.view?.frame = self.startingFrame ?? .zero
             
             guard let startingFrame = self.startingFrame else {return}
-
+            
             
             self.topConstraint?.constant = startingFrame.origin.y
             self.leadingConstraint?.constant = startingFrame.origin.x
@@ -126,7 +133,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.appFullScreenController.view.removeFromSuperview()
             self.appFullScreenController.removeFromParent()
             self.collectionView.isUserInteractionEnabled = true
-
+            
         })
     }
     
@@ -152,7 +159,7 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 32
     }
-     
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .init(top: 32, left: 0, bottom: 32, right: 0)
     }

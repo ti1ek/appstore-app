@@ -87,7 +87,7 @@ class AppDetailController: BaseListController, UICollectionViewDelegateFlowLayou
                             return
                         }
                         self.reviews = reviews
-                        reviews?.feed.entry.forEach({print($0.rating.label)})
+                        //reviews?.feed.entry.forEach({print($0.rating.label)})
         
                         DispatchQueue.main.async {
                             self.collectionView.reloadData()
