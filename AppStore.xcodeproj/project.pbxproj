@@ -52,6 +52,7 @@
 		F4F64738291F45B70002F8A5 /* BaseTodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F64737291F45B70002F8A5 /* BaseTodayCell.swift */; };
 		F4F6473A292169D20002F8A5 /* TodayMultipleAppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F64739292169D20002F8A5 /* TodayMultipleAppsController.swift */; };
 		F4F6473C29216A8C0002F8A5 /* MultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6473B29216A8C0002F8A5 /* MultipleAppCell.swift */; };
+		F4F6473E29239E760002F8A5 /* BackEnabledNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F6473D29239E760002F8A5 /* BackEnabledNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		F4F64737291F45B70002F8A5 /* BaseTodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTodayCell.swift; sourceTree = "<group>"; };
 		F4F64739292169D20002F8A5 /* TodayMultipleAppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleAppsController.swift; sourceTree = "<group>"; };
 		F4F6473B29216A8C0002F8A5 /* MultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleAppCell.swift; sourceTree = "<group>"; };
+		F4F6473D29239E760002F8A5 /* BackEnabledNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackEnabledNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				F44DBAA0291742F100F59ADD /* TodayController.swift */,
 				F4678CE12919E4DF00B58EF6 /* AppFullScreenController.swift */,
 				F4F64739292169D20002F8A5 /* TodayMultipleAppsController.swift */,
+				F4F6473D29239E760002F8A5 /* BackEnabledNavigationController.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				F43D0BC929036D4900D1A385 /* AppRowCell.swift in Sources */,
 				F4F64736291F3A4C0002F8A5 /* TodayMultipleAppCell.swift in Sources */,
 				F4678CE22919E4DF00B58EF6 /* AppFullScreenController.swift in Sources */,
+				F4F6473E29239E760002F8A5 /* BackEnabledNavigationController.swift in Sources */,
 				F4F6473C29216A8C0002F8A5 /* MultipleAppCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
