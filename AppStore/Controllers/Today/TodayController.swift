@@ -22,12 +22,6 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         return aiv
     }()
     
-//    let items = [
-//        TodayItem.init(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the apps and tools you need to intelligently organize your life the right way.", backgroundColor: .white, cellType: .single),
-//        TodayItem.init(category: "THE DAILY LIST", title: "Test-Drive These CarPlay Apps", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, cellType: .multiple),
-//        TodayItem.init(category: "HOLIDAYS", title: "Travel on a budget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everyting!", backgroundColor: #colorLiteral(red: 0.9789130092, green: 0.9626896977, blue: 0.7274394631, alpha: 1), cellType: .single)
-//    ]
-//
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -50,7 +44,6 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     }
     
     fileprivate func fetchData() {
-        // dispatchGroup
         
         let dispatchGroup = DispatchGroup()
         
@@ -59,7 +52,6 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         dispatchGroup.enter()
         Service.shared.fetchTopPaidApp { (appGroup, err) in
-            // make sure to check your errors
             topPaidGroup = appGroup
             dispatchGroup.leave()
         }
@@ -70,7 +62,6 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             dispatchGroup.leave()
         }
         
-        // completion block
         dispatchGroup.notify(queue: .main) {
             // I'll have access to top grossing and games somehow
             
@@ -78,15 +69,11 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.activityIndicatorView.stopAnimating()
             
             self.items = [
-                TodayItem.init(category: "Daily List", title: topPaidGroup?.feed.title ?? "", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, cellType: .multiple, apps: topPaidGroup?.feed.results ?? []),
-                
-                TodayItem.init(category: "Daily List", title: topFreeGroup?.feed.title ?? "", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, cellType: .multiple, apps: topFreeGroup?.feed.results ?? []),
-                
                 TodayItem.init(category: "LIFE HACK", title: "Utilizing your Time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way.", backgroundColor: .white, cellType: .single, apps: []),
-                TodayItem.init(category: "HOLIDAYS", title: "Travel on a Budget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everything!", backgroundColor: #colorLiteral(red: 0.9838578105, green: 0.9588007331, blue: 0.7274674177, alpha: 1), cellType: .single, apps: []),
-
+                TodayItem.init(category: "Daily List", title: topPaidGroup?.feed.title ?? "", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, cellType: .multiple, apps: topPaidGroup?.feed.results ?? []),
+                TodayItem.init(category: "Daily List", title: topFreeGroup?.feed.title ?? "", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, cellType: .multiple, apps: topFreeGroup?.feed.results ?? []),
+                TodayItem.init(category: "HOLIDAYS", title: "Travel on a Budget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everything!", backgroundColor: #colorLiteral(red: 0.9838578105, green: 0.9588007331, blue: 0.7274674177, alpha: 1), cellType: .single, apps: [])
             ]
-            
             self.collectionView.reloadData()
         }
         
@@ -94,76 +81,87 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
     
     var appFullScreenController: AppFullScreenController!
     
-    var topConstraint: NSLayoutConstraint?
-    var leadingConstraint: NSLayoutConstraint?
-    var widthConstraint: NSLayoutConstraint?
-    var heightConstraint: NSLayoutConstraint?
+    fileprivate func showDailyListFullScreen() {
+        let fullController = TodayMultipleAppsController(mode: .fullScreen)
+        fullController.modalPresentationStyle = .fullScreen
+        present(BackEnabledNavigationController(rootViewController: fullController), animated: true)
+    }
     
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if items[indexPath.item].cellType == .multiple {
-            let fullController = TodayMultipleAppsController(mode: .fullScreen)
-            fullController.modalPresentationStyle = .fullScreen
-            present(BackEnabledNavigationController(rootViewController: fullController), animated: true)
-            return
-        }
-        
+    fileprivate func setupAppSingleFullScreenController(_ indexPath: IndexPath) {
         let appFullScreenController = AppFullScreenController()
         appFullScreenController.todayItem = items[indexPath.row ]
         appFullScreenController.dismissHandler = {
             self.handleRemoveRedView()
         }
         
-        
-        let fullScreenView = appFullScreenController.view!
-        view.addSubview(fullScreenView)
-        
-        
-        addChild(appFullScreenController)
-        
+        appFullScreenController.view.layer.cornerRadius = 16
         self.appFullScreenController = appFullScreenController
-        
-        self.collectionView.isUserInteractionEnabled = false
-        
+    }
+    
+    fileprivate func setupStartingCellFrame(_ indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) else { return }
         
         guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else { return }
         
         self.startingFrame = startingFrame
+    }
+    
+    fileprivate func setupAppFullScreenStartingPosition(_ indexPath: IndexPath) {
+        let fullScreenView = appFullScreenController.view!
+        view.addSubview(fullScreenView)
         
-        fullScreenView.translatesAutoresizingMaskIntoConstraints = false
+        addChild(appFullScreenController)
+         
+        self.collectionView.isUserInteractionEnabled = false
         
-        topConstraint = fullScreenView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
-        leadingConstraint = fullScreenView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
-        widthConstraint = fullScreenView.widthAnchor.constraint(equalToConstant: startingFrame.width)
-        heightConstraint = fullScreenView.heightAnchor.constraint(equalToConstant: startingFrame.height)
+        setupStartingCellFrame(indexPath)
         
-        [topConstraint, leadingConstraint, widthConstraint, heightConstraint].forEach ({$0?.isActive = true})
+        guard let startingFrame = self.startingFrame else { return }
+        
+        self.anchoredConstraints = fullScreenView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: startingFrame.origin.y, left: startingFrame.origin.x, bottom: 0, right: 0), size: .init(width: startingFrame.width, height: startingFrame.height ))
+
         self.view.layoutIfNeeded()
-        
-        //redView.frame = startingFrame
-        fullScreenView.layer.cornerRadius = 16
-        
+    }
+    
+    var anchoredConstraints: AnchoredConstraints?
+    
+    fileprivate func beginAnimationAppFullScreen() {
         UIView.animate(withDuration: 0.7 , delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
             
-            
             self.appFullScreenController.tableView.contentOffset = .zero
-            self.topConstraint?.constant = 0
-            self.leadingConstraint?.constant = 0
-            self.widthConstraint?.constant = self.view.frame.width
-            self.heightConstraint?.constant = self.view.frame.height
+            
+            self.anchoredConstraints?.top?.constant = 0
+            self.anchoredConstraints?.leading?.constant = 0
+            self.anchoredConstraints?.width?.constant = self.view.frame.width
+            self.anchoredConstraints?.height?.constant = self.view.frame.height
             
             self.view.layoutIfNeeded()
             
             self.tabBarController?.tabBar.isHidden = true
             
-            guard let cell = appFullScreenController.tableView.cellForRow(at: [0, 0]) as? AppFullScreenHeaderCell else {return}
+            guard let cell = self.appFullScreenController.tableView.cellForRow(at: [0, 0]) as? AppFullScreenHeaderCell else {return}
             
             cell.todayCell.topConstraint.constant = 48
             cell.layoutIfNeeded()
             
         }, completion: nil)
+    }
+    
+    
+    fileprivate func showSingleAppFullScreen(indexPath: IndexPath) {
+        setupAppSingleFullScreenController(indexPath)
+        setupAppFullScreenStartingPosition(indexPath)
+        beginAnimationAppFullScreen()
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        switch items[indexPath.item].cellType {
+        case .multiple:
+            showDailyListFullScreen()
+        default:
+            showSingleAppFullScreen(indexPath: indexPath)
+        }
     }
     
     
@@ -173,15 +171,13 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         UIView.animate(withDuration: 0.7 , delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
             
-            // gesture.view?.frame = self.startingFrame ?? .zero
-            
             guard let startingFrame = self.startingFrame else {return}
             
             
-            self.topConstraint?.constant = startingFrame.origin.y
-            self.leadingConstraint?.constant = startingFrame.origin.x
-            self.widthConstraint?.constant = startingFrame.width
-            self.heightConstraint?.constant = startingFrame.height
+            self.anchoredConstraints?.top?.constant = startingFrame.origin.y
+            self.anchoredConstraints?.leading?.constant = startingFrame.origin.x
+            self.anchoredConstraints?.width?.constant = startingFrame.width
+            self.anchoredConstraints?.height? .constant = startingFrame.height
             
             self.view.layoutIfNeeded()
             
